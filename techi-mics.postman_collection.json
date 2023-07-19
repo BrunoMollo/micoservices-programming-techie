@@ -56,13 +56,42 @@
 			"response": []
 		},
 		{
-			"name": "create order",
+			"name": "create order (out of stock)",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"lines\":[\n        {    \n        \"skuCode\":\"chair\",\n        \"price\":120,\n        \"quantity\":3\n        },\n        {    \n        \"skuCode\":\"table\",\n        \"price\":220,\n        \"quantity\":2\n        },\n        {\n        \"skuCode\":\"fork\",\n        \"price\":20,\n        \"quantity\":4\n        }\n    ]\n}",
+					"raw": "{\n    \"lines\":[\n        {    \n        \"skuCode\":\"chair\",\n        \"price\":120,\n        \"quantity\":1\n        },\n          {    \n        \"skuCode\":\"table\",\n        \"price\":120,\n        \"quantity\":3\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order (with of stock)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lines\":[\n        {    \n        \"skuCode\":\"chair\",\n        \"price\":120,\n        \"quantity\":1\n        }\n    ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -102,7 +131,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/api/inventory/chair",
+					"raw": "http://localhost:8082/api/inventory?skuCode=chair",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -110,8 +139,13 @@
 					"port": "8082",
 					"path": [
 						"api",
-						"inventory",
-						"chair"
+						"inventory"
+					],
+					"query": [
+						{
+							"key": "skuCode",
+							"value": "chair"
+						}
 					]
 				}
 			},
@@ -135,7 +169,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/api/inventory/fork",
+					"raw": "http://localhost:8082/api/inventory?skuCode=fork",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -143,8 +177,13 @@
 					"port": "8082",
 					"path": [
 						"api",
-						"inventory",
-						"fork"
+						"inventory"
+					],
+					"query": [
+						{
+							"key": "skuCode",
+							"value": "fork"
+						}
 					]
 				}
 			},
@@ -168,7 +207,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/api/inventory/fork",
+					"raw": "http://localhost:8082/api/inventory?skuCode=knife",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -176,8 +215,13 @@
 					"port": "8082",
 					"path": [
 						"api",
-						"inventory",
-						"fork"
+						"inventory"
+					],
+					"query": [
+						{
+							"key": "skuCode",
+							"value": "knife"
+						}
 					]
 				}
 			},
