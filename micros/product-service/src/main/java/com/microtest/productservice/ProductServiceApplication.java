@@ -3,6 +3,7 @@ package com.microtest.productservice;
 import com.microtest.productservice.model.Product;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 public class ProductServiceApplication {

@@ -27,7 +27,7 @@ public class OrderService {
                 .toList();
 
        InventoryResponse[] inventoryResponses=webClient.get()
-                .uri("http://localhost:8082/api/inventory",
+                .uri("https://inventory-service/api/inventory",
                         uriBuilder -> uriBuilder
                             .queryParam("skuCode", skuCodes)
                             .build()
