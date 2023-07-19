@@ -62,7 +62,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"lines\":[\n        {    \n        \"skuCode\":\"chair\",\n        \"price\":100,\n        \"quantity\":4\n        },\n        {    \n        \"skuCode\":\"table\",\n        \"price\":200,\n        \"quantity\":1\n        }\n    ]\n}",
+					"raw": "{\n    \"lines\":[\n        {    \n        \"skuCode\":\"chair\",\n        \"price\":120,\n        \"quantity\":3\n        },\n        {    \n        \"skuCode\":\"table\",\n        \"price\":220,\n        \"quantity\":2\n        },\n        {\n        \"skuCode\":\"fork\",\n        \"price\":20,\n        \"quantity\":4\n        }\n    ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -79,6 +79,105 @@
 					"path": [
 						"api",
 						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check stock chair (has stock)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lines\":[\n        {    \n        \"skuCode\":\"chair\",\n        \"price\":100,\n        \"quantity\":4\n        },\n        {    \n        \"skuCode\":\"table\",\n        \"price\":200,\n        \"quantity\":1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/inventory/chair",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"inventory",
+						"chair"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check stock fork (0 stock)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lines\":[\n        {    \n        \"skuCode\":\"chair\",\n        \"price\":100,\n        \"quantity\":4\n        },\n        {    \n        \"skuCode\":\"table\",\n        \"price\":200,\n        \"quantity\":1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/inventory/fork",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"inventory",
+						"fork"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check stock knife (dont exist)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lines\":[\n        {    \n        \"skuCode\":\"chair\",\n        \"price\":100,\n        \"quantity\":4\n        },\n        {    \n        \"skuCode\":\"table\",\n        \"price\":200,\n        \"quantity\":1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/inventory/fork",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"inventory",
+						"fork"
 					]
 				}
 			},
